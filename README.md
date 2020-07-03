@@ -1,4 +1,4 @@
-VM options:
+启动参数 VM options:
 -
 * -Duser.region=US
 * -Dfile.encoding=UTF-8
@@ -8,7 +8,7 @@ VM options:
 * -Djava.util.logging.config.file=/Users/mc/Documents/workspace/tomcat9/apache-tomcat-9.0.36-src/home/conf/logging.properties
 
 
-JDTCompiler中CompilerOptions.VERSION_9等常量找不到
+JDTCompiler中CompilerOptions.VERSION_9等常量找不到(项目中已修改)
 -
 ```
 } else if(opt.equals("9") || opt.equals("1.9")) {
@@ -27,7 +27,7 @@ JDTCompiler中CompilerOptions.VERSION_9等常量找不到
 直接注释代码块即可
       
 
-访问localhost:8080报错解决方案：
+访问localhost:8080报错解决方案：(项目中已修改)
 -
 
 ```
