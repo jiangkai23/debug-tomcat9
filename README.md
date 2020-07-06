@@ -1,3 +1,7 @@
+启动类Main class:
+-
+org.apache.catalina.startup.Bootstrap
+
 启动参数 VM options:
 -
 * -Duser.region=US
@@ -6,6 +10,7 @@
 * -Dcatalina.base=/Users/mc/Documents/workspace/tomcat9/apache-tomcat-9.0.36-src/home
 * -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
 * -Djava.util.logging.config.file=/Users/mc/Documents/workspace/tomcat9/apache-tomcat-9.0.36-src/home/conf/logging.properties
+home、base、file参数修改为你自己的路径
 
 
 JDTCompiler中CompilerOptions.VERSION_9等常量找不到(项目中已修改)
