@@ -1,4 +1,8 @@
-VM options:
+启动类Main class:
+-
+org.apache.catalina.startup.Bootstrap
+
+启动参数 VM options:
 -
 * -Duser.region=US
 * -Dfile.encoding=UTF-8
@@ -6,9 +10,10 @@ VM options:
 * -Dcatalina.base=/Users/mc/Documents/workspace/tomcat9/apache-tomcat-9.0.36-src/home
 * -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
 * -Djava.util.logging.config.file=/Users/mc/Documents/workspace/tomcat9/apache-tomcat-9.0.36-src/home/conf/logging.properties
+home、base、file参数修改为你自己的路径
 
 
-JDTCompiler中CompilerOptions.VERSION_9等常量找不到
+JDTCompiler中CompilerOptions.VERSION_9等常量找不到(项目中已修改)
 -
 ```
 } else if(opt.equals("9") || opt.equals("1.9")) {
@@ -27,7 +32,7 @@ JDTCompiler中CompilerOptions.VERSION_9等常量找不到
 直接注释代码块即可
       
 
-访问localhost:8080报错解决方案：
+访问localhost:8080报错解决方案：(项目中已修改)
 -
 
 ```
