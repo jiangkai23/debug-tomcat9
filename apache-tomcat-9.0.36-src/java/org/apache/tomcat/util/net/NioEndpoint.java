@@ -396,6 +396,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
      */
     @Override
     protected boolean setSocketOptions(SocketChannel socket) {
+        // debug-tomcat9-work:acceptor
         NioSocketWrapper socketWrapper = null;
         try {
             // Allocate channel and wrapper
@@ -662,6 +663,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
             } else {
                 event.reset(socket, OP_REGISTER);
             }
+            // debug-tomcat9-work:add event(wrapper socket) to poller.events
             addEvent(event);
         }
 

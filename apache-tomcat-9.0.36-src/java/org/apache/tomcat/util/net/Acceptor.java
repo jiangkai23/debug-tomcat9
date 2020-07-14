@@ -80,6 +80,8 @@ public class Acceptor<U> implements Runnable {
 
             try {
                 //if we have reached max connections, wait
+                // debug-tomcat9-work:acceptor
+                // 限制最大连接数,默认8*1024
                 endpoint.countUpOrAwaitConnection();
 
                 // Endpoint might have been paused while waiting for latch
@@ -93,6 +95,7 @@ public class Acceptor<U> implements Runnable {
                     // Accept the next incoming connection from the server
                     // socket
                     socket = endpoint.serverSocketAccept();
+                    System.out.println("accepter");
                 } catch (Exception ioe) {
                     // We didn't get a socket
                     endpoint.countDownConnection();
