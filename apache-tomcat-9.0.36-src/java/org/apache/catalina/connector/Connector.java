@@ -997,6 +997,7 @@ public class Connector extends LifecycleMBeanBase  {
     @Override
     protected void initInternal() throws LifecycleException {
 
+        // debug-tomcat9-init:connector-init
         super.initInternal();
 
         if (protocolHandler == null) {
@@ -1052,6 +1053,7 @@ public class Connector extends LifecycleMBeanBase  {
     @Override
     protected void startInternal() throws LifecycleException {
 
+        // debug-tomcat9-init:connector-start
         // Validate settings before starting
         if (getPortWithOffset() < 0) {
             throw new LifecycleException(sm.getString(

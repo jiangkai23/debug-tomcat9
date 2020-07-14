@@ -246,6 +246,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
     @Override
     public void startInternal() throws Exception {
 
+        // debug-tomcat9-init:endpoint-start
         if (!running) {
             running = true;
             paused = false;
