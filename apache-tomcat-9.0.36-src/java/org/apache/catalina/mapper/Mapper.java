@@ -1069,6 +1069,8 @@ public final class Mapper {
     private final void internalMapExactWrapper
         (MappedWrapper[] wrappers, CharChunk path, MappingData mappingData) {
         MappedWrapper wrapper = exactFind(wrappers, path);
+        // debug-tomcat9-print
+        System.out.println(path + ", internalMapExactWrapper, Thread:" + Thread.currentThread().getId());
         if (wrapper != null) {
             mappingData.requestPath.setString(wrapper.name);
             mappingData.wrapper = wrapper.object;

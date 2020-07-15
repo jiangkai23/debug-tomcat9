@@ -1084,6 +1084,7 @@ public abstract class AbstractEndpoint<S,U> {
      */
     public boolean processSocket(SocketWrapperBase<S> socketWrapper,
             SocketEvent event, boolean dispatch) {
+
         try {
             if (socketWrapper == null) {
                 return false;
@@ -1097,6 +1098,9 @@ public abstract class AbstractEndpoint<S,U> {
             } else {
                 sc.reset(socketWrapper, event);
             }
+            // debug-tomcat9-print
+            System.out.println("AbstractEndpoint.processSocket(), event:" + event + ", socketProcessor:" + sc.hashCode());
+
             Executor executor = getExecutor();
             if (dispatch && executor != null) {
                 executor.execute(sc);

@@ -1548,6 +1548,9 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
 
         @Override
         protected void doRun() {
+            // debug-tomcat9-print
+            System.out.println("SocketProcessor.doRun(), event:" + event + ", Thread:" + Thread.currentThread().getId() + ", socketProcessor:" + this.hashCode());
+
             NioChannel socket = socketWrapper.getSocket();
             Poller poller = NioEndpoint.this.poller;
             if (poller == null) {
@@ -1595,6 +1598,8 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
                     if (state == SocketState.CLOSED) {
                         poller.cancelledKey(socket.getIOChannel().keyFor(poller.getSelector()), socketWrapper);
                     }
+                    // debug-tomcat9-print
+                    System.out.println(state.toString());
                 } else if (handshake == -1 ) {
                     getHandler().process(socketWrapper, SocketEvent.CONNECT_FAIL);
                     poller.cancelledKey(socket.getIOChannel().keyFor(poller.getSelector()), socketWrapper);
