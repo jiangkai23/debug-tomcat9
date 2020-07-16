@@ -41,6 +41,7 @@ public abstract class AbstractProcessorLight implements Processor {
     public SocketState process(SocketWrapperBase<?> socketWrapper, SocketEvent status)
             throws IOException {
 
+        // debug-tomcat9-work-connector
         SocketState state = SocketState.CLOSED;
         Iterator<DispatchType> dispatches = null;
         do {
