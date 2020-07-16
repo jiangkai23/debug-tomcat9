@@ -340,6 +340,7 @@ public class CoyoteAdapter implements Adapter {
                 request.setAsyncSupported(
                         connector.getService().getContainer().getPipeline().isAsyncSupported());
                 // Calling the container
+                // debug-tomcat9-doc 获取Engine调用pipeline链式处理
                 connector.getService().getContainer().getPipeline().getFirst().invoke(
                         request, response);
             }
@@ -693,6 +694,7 @@ public class CoyoteAdapter implements Adapter {
 
         while (mapRequired) {
             // This will map the the latest version by default
+            // debug-tomcat9-doc 找到请求映射host、context、wrapper
             connector.getService().getMapper().map(serverName, decodedURI,
                     version, request.getMappingData());
 
@@ -738,6 +740,7 @@ public class CoyoteAdapter implements Adapter {
                 }
                 return true;
             }
+            // debug-tomcat9-doc 解析sessionId
             parseSessionSslId(request);
 
             sessionID = request.getRequestedSessionId();
