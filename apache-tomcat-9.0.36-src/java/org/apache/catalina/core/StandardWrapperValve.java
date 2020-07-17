@@ -130,6 +130,7 @@ final class StandardWrapperValve
         }
 
         // Allocate a servlet instance to process this request
+        // debug-tomcat9-doc 分配servlet处理请求
         try {
             if (!unavailable) {
                 servlet = wrapper.allocate();
@@ -163,6 +164,7 @@ final class StandardWrapperValve
             servlet = null;
         }
 
+        // debug-tomcat9-doc 获取请求path
         MessageBytes requestPathMB = request.getRequestPathMB();
         DispatcherType dispatcherType = DispatcherType.REQUEST;
         if (request.getDispatcherType()==DispatcherType.ASYNC) dispatcherType = DispatcherType.ASYNC;
@@ -170,6 +172,7 @@ final class StandardWrapperValve
         request.setAttribute(Globals.DISPATCHER_REQUEST_PATH_ATTR,
                 requestPathMB);
         // Create the filter chain for this request
+        // debug-tomcat9-doc 创建filterChain处理请求
         ApplicationFilterChain filterChain =
                 ApplicationFilterFactory.createFilterChain(request, wrapper, servlet);
 
@@ -185,6 +188,7 @@ final class StandardWrapperValve
                         if (request.isAsyncDispatching()) {
                             request.getAsyncContextInternal().doInternalDispatch();
                         } else {
+                            // debug-tomcat9-doc 开始执行filter链,最后到servlet中
                             filterChain.doFilter(request.getRequest(),
                                     response.getResponse());
                         }

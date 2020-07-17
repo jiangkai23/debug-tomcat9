@@ -746,6 +746,7 @@ public final class Mapper {
 
         // Virtual host mapping
         MappedHost[] hosts = this.hosts;
+        // debug-tomcat9-doc 从hosts数组中根据主机名找到MappedHost
         MappedHost mappedHost = exactFindIgnoreCase(hosts, host);
         if (mappedHost == null) {
             // Note: Internally, the Mapper does not use the leading * on a
@@ -848,6 +849,7 @@ public final class Mapper {
 
         // Wrapper mapping
         if (!contextVersion.isPaused()) {
+            // debug-tomcat9-doc 从contextVersion的wrappers数组中根据主机名找到MappedWrapper
             internalMapWrapper(contextVersion, uri, mappingData);
         }
 

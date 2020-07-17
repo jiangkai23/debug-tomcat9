@@ -694,7 +694,7 @@ public class CoyoteAdapter implements Adapter {
 
         while (mapRequired) {
             // This will map the the latest version by default
-            // debug-tomcat9-doc 找到请求映射host、context、wrapper
+            // debug-tomcat9-doc 找到请求映射host、context、wrapper,存储在mappingData中
             connector.getService().getMapper().map(serverName, decodedURI,
                     version, request.getMappingData());
 
