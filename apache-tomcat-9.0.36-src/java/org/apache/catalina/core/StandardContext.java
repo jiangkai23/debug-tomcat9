@@ -4928,6 +4928,7 @@ public class StandardContext extends ContainerBase
             resourcesStart();
         }
 
+        // debug-tomcat9-classLoader
         if (getLoader() == null) {
             WebappLoader webappLoader = new WebappLoader();
             webappLoader.setDelegate(getDelegate());
@@ -4985,6 +4986,7 @@ public class StandardContext extends ContainerBase
         try {
             if (ok) {
                 // Start our subordinate components, if any
+                // debug-tomcat9-classLoader
                 Loader loader = getLoader();
                 if (loader instanceof Lifecycle) {
                     ((Lifecycle) loader).start();
