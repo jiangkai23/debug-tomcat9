@@ -1216,6 +1216,7 @@ public class Digester extends DefaultHandler2 {
                     if (debug) {
                         log.debug("  Fire begin() for " + rule);
                     }
+                    // debug-tomcat9-classLoader
                     rule.begin(namespaceURI, name, list);
                 } catch (Exception e) {
                     log.error(sm.getString("digester.error.begin"), e);

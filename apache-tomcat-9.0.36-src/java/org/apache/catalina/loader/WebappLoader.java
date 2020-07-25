@@ -393,6 +393,7 @@ public class WebappLoader extends LifecycleMBeanBase
         // Construct a class loader based on our current repositories list
         try {
 
+            // debug-tomcat9-classLoader
             classLoader = createClassLoader();
             classLoader.setResources(context.getResources());
             classLoader.setDelegate(this.delegate);
@@ -516,6 +517,7 @@ public class WebappLoader extends LifecycleMBeanBase
         } else {
             context.setParentClassLoader(parentClassLoader);
         }
+        System.out.println("webappClassLoader.parent:" + parentClassLoader.toString());
         Class<?>[] argTypes = { ClassLoader.class };
         Object[] args = { parentClassLoader };
         Constructor<?> constr = clazz.getConstructor(argTypes);

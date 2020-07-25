@@ -150,6 +150,9 @@ public final class Bootstrap {
             }
             catalinaLoader = createClassLoader("server", commonLoader);
             sharedLoader = createClassLoader("shared", commonLoader);
+            System.out.println("commonClassLoader:" + commonLoader.toString());
+            System.out.println("catalinaClassLoader:" + catalinaLoader.toString());
+            System.out.println("sharedClassLoader:" + sharedLoader.toString());
         } catch (Throwable t) {
             handleThrowable(t);
             log.error("Class loader creation threw exception", t);
@@ -250,6 +253,7 @@ public final class Bootstrap {
      */
     public void init() throws Exception {
 
+        // debug-tomcat9-init
         initClassLoaders();
 
         Thread.currentThread().setContextClassLoader(catalinaLoader);

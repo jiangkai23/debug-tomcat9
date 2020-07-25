@@ -1216,7 +1216,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
      */
     @Override
     public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
-
+        // debug-tomcat9-classLoader
         synchronized (JreCompat.isGraalAvailable() ? this : getClassLoadingLock(name)) {
             if (log.isDebugEnabled())
                 log.debug("loadClass(" + name + ", " + resolve + ")");
@@ -1250,6 +1250,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
             //       SRV.10.7.2
             String resourceName = binaryNameToPath(name, false);
 
+            // debug-tomcat9-doc 使用ExtClassLoader加载
             ClassLoader javaseLoader = getJavaseClassLoader();
             boolean tryLoadingFromJavaseLoader;
             try {
@@ -1331,6 +1332,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
             if (log.isDebugEnabled())
                 log.debug("  Searching local repositories");
             try {
+                // debug-tomcat9-doc webClassLoader自己加载
                 clazz = findClass(name);
                 if (clazz != null) {
                     if (log.isDebugEnabled())
